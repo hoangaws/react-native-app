@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import {SideMenu} from './components/Router.js';
-import SplashScreen from 'react-native-splash-screen'
+import SplashScreen from 'react-native-splash-screen';
 
-export default class Index extends React.Component{
+import { TabbarA } from './primary_screen/Routers.js';
 
-  componentDidMount() {
-        SplashScreen.hide();
-  }
+export default class Index extends React.Component {
 
   render() {
     console.log("Hello render index");
     return (
-        <SideMenu />
+      <TabbarA />
     );
+  }
+
+  componentDidMount() {
+    SplashScreen.hide();
   }
 
 }

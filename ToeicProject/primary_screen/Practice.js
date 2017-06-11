@@ -10,13 +10,12 @@ import {
 } from 'react-native-admob';
 
 
-export default class Detail extends React.Component {
+export default class Practice extends React.Component {
 
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Detail</Text>
-        <Text>{this.props.navigation.state.params.thamso}</Text>
+        <Text>Practice</Text>
 
         <AdMobBanner
           bannerSize="fullBanner"
