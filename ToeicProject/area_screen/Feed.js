@@ -9,12 +9,10 @@ import { users } from '../config/data';
 import {StackNavigator } from 'react-navigation';
 import UserDetail from './UserDetail';
 
-class Feed extends Component {
-  onLearnMore = (user) => {
-    this.props.navigation.navigate('Details', { ...user });
-  };
+export default class Feed extends React.Component {
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <ScrollView>
         <List>
@@ -25,24 +23,12 @@ class Feed extends Component {
               avatar={{ uri: user.picture.thumbnail }}
               title={`${user.name.first.toUpperCase()} ${user.name.last.toUpperCase()}`}
               subtitle={user.email}
-              onPress={() => this.onLearnMore(user)}
+              onPress={() => navigate('UserDetail_s',{ ...user })}
             />
           ))}
         </List>
       </ScrollView>
     );
   }
+
 }
-
-export default Feed;
-
-// export default FeedStack;
-
-// const FeedStack = StackNavigator({
-//   Feed: {
-//     screen: Feed,
-//   },
-//   Details: {
-//     screen: UserDetail,
-//   },
-// });
