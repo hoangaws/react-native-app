@@ -7,41 +7,112 @@ import {
     ScrollView,
 } from 'react-native';
 
-import FeedStack from '../area_screen/Feed';
+import { List, ListItem } from 'react-native-elements';
+import { users } from '../config/data';
 import FacebookTabBar from './FacebookTabBar';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
+import SplashScreen from 'react-native-splash-screen';
+import {
+    AdMobBanner,
+} from 'react-native-admob';
 
 export default React.createClass({
     render() {
-        return <ScrollableTabView 
-        style={{ marginTop: 0, }} initialPage={1} renderTabBar={() => <FacebookTabBar />} 
+        const { navigate } = this.props.navigation;
+        return <ScrollableTabView initialPage={2} renderTabBar={() => <FacebookTabBar />}
             tabBarPosition="bottom" //locked={true}
         >
-            <ScrollView tabLabel="ios-paper">
+            <ScrollView tabLabel="ios-bonfire">
                 <View>
-                   <FeedStack />
+                    <Text>Vocabulary </Text>
+
                 </View>
             </ScrollView>
-            <ScrollView tabLabel="ios-people">
+            <ScrollView tabLabel="ios-bulb" color="red">
                 <View>
-                    <Text>dsdsds </Text>
+                    <Text>Tips</Text>
                 </View>
             </ScrollView>
-            <ScrollView tabLabel="ios-chatboxes">
+            <ScrollView tabLabel="ios-eye">
                 <View>
-                    <Text>Messenger</Text>
+                    <ScrollView>
+                        <List>
+                            {users.map((user) => (
+                                <ListItem
+                                    key={user.login.username}
+
+                                    avatar={{ uri: user.picture.thumbnail }}
+                                    title={`${user.name.first.toUpperCase()} ${user.name.last.toUpperCase()}`}
+                                    subtitle={user.email}
+                                    onPress={() => navigate('UserDetail_s', { ...user })}
+                                />
+                            ))}
+                        </List>
+                    </ScrollView>
+                </View>
+
+            </ScrollView>
+            <ScrollView tabLabel="ios-headset">
+                <View>
+                    <ScrollView>
+                        <List>
+                            {users.map((user) => (
+                                <ListItem
+                                    key={user.login.username}
+
+                                    avatar={{ uri: user.picture.thumbnail }}
+                                    title={`${user.name.first.toUpperCase()} ${user.name.last.toUpperCase()}`}
+                                    subtitle={user.email}
+                                    onPress={() => navigate('UserDetail_s', { ...user })}
+                                />
+                            ))}
+                        </List>
+                    </ScrollView>
                 </View>
             </ScrollView>
-            <ScrollView tabLabel="ios-notifications">
+            <ScrollView tabLabel="ios-ribbon">
                 <View>
-                    <Text>Notifications</Text>
-                </View>
-            </ScrollView>
-            <ScrollView tabLabel="ios-list">
-                <View>
-                    <Text>Other nav</Text>
+                    <ScrollView>
+                        <List>
+                            <ListItem
+                                key="SETTING"
+
+                                avatar={{ uri: "https://fashionthatpays.files.wordpress.com/2014/07/wolverine-x-man.jpg?w=463" }}
+                                title="Set1"
+                                subtitle="aAasds"
+                                onPress={() => navigate('Setting_s')}
+                            />
+                            <ListItem
+                                key="SETTING2"
+
+                                avatar={{ uri: "https://fashionthatpays.files.wordpress.com/2014/07/wolverine-x-man.jpg?w=463" }}
+                                title="Set2"
+                                subtitle="aAasds"
+                                onPress={() => navigate('Setting_s')}
+                            />
+                            <ListItem
+                                key="SETTING3"
+
+                                avatar={{ uri: "https://fashionthatpays.files.wordpress.com/2014/07/wolverine-x-man.jpg?w=463" }}
+                                title="Set3"
+                                subtitle="aAasds"
+                                onPress={() => navigate('Setting_s')}
+                            />
+
+                        </List>
+                        <Text>Hãy click vào QC để ủng hộ APP</Text>
+                        <AdMobBanner
+                            bannerSize="fullBanner"
+                            adUnitID="ca-app-pub-7469861277535029/8882938994"
+                            testDeviceID="EMULATOR"
+                            didFailToReceiveAdWithError={(err) => { console.log("quang cao that bai" + err); }} />
+                    </ScrollView>
                 </View>
             </ScrollView>
         </ScrollableTabView>;
     },
+
+    componentDidMount() {
+        SplashScreen.hide();
+    }
 });

@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import Index from "./Index.js";
 
+import {Routers} from './primary_screen/Routers.js';
 
 export default class ToeicProject extends Component {
 
   render() {
     console.log("Hello render ToeicProject");
     return (
-      <Index />
+      <Routers />
     );
   }
+
 }
 
 AppRegistry.registerComponent('ToeicProject', () => ToeicProject);
