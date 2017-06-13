@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator,DrawerNavigator  } from 'react-navigation';
 import {
     StyleSheet,
     Image,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 import Practice from './Practice.js';
 import Vocabulary from './Vocabulary.js';
 import Tips from './Tips.js';
@@ -12,50 +12,62 @@ import Progress from './Progress.js';
 import Setting from './Setting.js';
 
 // cac man hinh chinh
-export const PracticeStack = StackNavigator({
-    Practice_Screen: {
+
+export const PracticeStack = DrawerNavigator({
+    Tips_Screen: {
         screen: Practice,
-        navigationOptions: {
-            title: 'Practice-tieude',
-            headerTintColor: 'blue',
+        contentOptions: {
+            title: 'PracticeStack12',
+            drawerIcon: ({ tintColor }) => <Icon name="ios-person" size={35} color={tintColor} />,
         }
     },
 });
 
-export const VocabularyStack = StackNavigator({
-    Vocabulary_Screen: {
+export const VocabularyStack = DrawerNavigator({
+    Tips_Screen: {
         screen: Vocabulary,
-        navigationOptions: {
-            title: 'Vocabulary'
+        contentOptions: {
+            title: 'VocabularyStack',
+            drawerIcon: ({ tintColor }) => <Icon name="ios-person" size={35} color={tintColor} />,
         }
     },
 });
 
-export const TipsStack = StackNavigator({
+export const TipsStack = DrawerNavigator({
     Tips_Screen: {
         screen: Tips,
-        navigationOptions: {
-            title: 'Tips'
+        contentOptions: {
+            title: 'Tips',
+            drawerIcon: ({ tintColor }) => <Icon name="ios-person" size={35} color={tintColor} />,
         }
     },
 });
 
-export const ProgressStack = StackNavigator({
+export const ProgressStack = DrawerNavigator({
     Progress_Screen: {
         screen: Progress,
-        navigationOptions: {
-            title: 'Progress'
+        contentOptions: {
+            title: 'Progress',
+            drawerIcon: ({ tintColor }) => <Icon name="ios-person" size={35} color={tintColor} />,
         }
     },
 });
 
-export const SettingStack = StackNavigator({
+export const SettingStack = DrawerNavigator({
     Setting_Screen: {
         screen: Setting,
-        navigationOptions: {
-            title: 'Setting'
+        contentOptions: {
+            title: 'Setting',
+            drawerIcon: ({ tintColor }) => <Icon name="ios-person" size={35} color={tintColor} />,
         }
     },
+});
+
+export const styles = StyleSheet.create({
+  icon: {
+    width: 26,
+    height: 26,
+  },
 });
 
 // cau hinh tabbar o duoi
@@ -63,40 +75,19 @@ export const TabbarA = TabNavigator(
     {
         PracticeTab: {
             screen: PracticeStack,
-            navigationOptions: {
-                tabBarLabel: 'Pract'
-            }
         },
 
         VocabularyTab: {
             screen: VocabularyStack,
-            navigationOptions: {
-                // tabBarLabel: 'Vocabul',
-                // title: 'Profile 01',
-                tabBarIcon: () => (
-                    
-                        <Icon name="home" size={24} color="#900" />
-                    
-                ),
-            }
         },
         TipsTab: {
             screen: TipsStack,
-            navigationOptions: {
-                tabBarLabel: 'Tips'
-            }
         },
         ProgressTab: {
             screen: ProgressStack,
-            navigationOptions: {
-                tabBarLabel: 'Progress'
-            }
         },
         SettingTab: {
             screen: SettingStack,
-            navigationOptions: {
-                tabBarLabel: 'Setting'
-            }
         },
     },
     {
@@ -112,14 +103,6 @@ export const TabbarA = TabNavigator(
     }
 );
 
-const styles = StyleSheet.create({
-    icon: {
-        width: 26,
-        height: 26,
-    },
-});
-
-
 // cau hinh tabbar ben trai
 // export const SideMenu = DrawerNavigator(
 //   {
@@ -133,3 +116,4 @@ const styles = StyleSheet.create({
 //     contentComponent: props => <Menu {...props} />
 //   }
 // );
+
