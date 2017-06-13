@@ -12,7 +12,7 @@ import UserDetail from './UserDetail';
 export default class Feed extends React.Component {
 
   render() {
-    const { navigate } = this.props.navigation;
+  //  const { navigate } = this.props.navigation;
     return (
       <ScrollView>
         <List>
@@ -32,3 +32,13 @@ export default class Feed extends React.Component {
   }
 
 }
+
+//  const App = StackNavigator(
+//   {
+//     UserDetail_s: { screen: UserDetail },
+//   }
+// );
+
+
+
+
