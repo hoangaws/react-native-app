@@ -1,15 +1,17 @@
 import { StackNavigator } from 'react-navigation';
 import Welcome from './Welcome.js';
-import UserDetail from '../area_screen/UserDetail.js';
+import Test from '../area_screen/Test.js';
 import Setting from './Setting.js';
+import Detail from '../sreens/Detail.js';
 
 export const Routers = StackNavigator(
   {
-    Welcome_s: { screen: Welcome },
-    UserDetail_s: { screen: UserDetail },
+    Welcome_Screens: { screen: Welcome },
+    Test_Screens: { screen: Test },
     Setting_s: { screen: Setting },
+    ManHinh_Detail:{ screen: Detail},
   },
   {
-    initialRouteName: 'Welcome_s',
+    initialRouteName: 'Welcome_Screens',
   }
 )

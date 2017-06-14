@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const FacebookTabBar = React.createClass({
+const TestTabBar = React.createClass({
   tabIcons: [],
 
   propTypes: {
@@ -74,4 +74,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FacebookTabBar;
+export default TestTabBar;

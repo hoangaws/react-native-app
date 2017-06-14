@@ -5,9 +5,10 @@ import {
     Text,
     View,
     ScrollView,
+    TouchableOpacity
 } from 'react-native';
 
-import { List, ListItem } from 'react-native-elements';
+import { List, ListItem, Button } from 'react-native-elements';
 import { users } from '../config/data';
 import FacebookTabBar from './FacebookTabBar';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
@@ -16,7 +17,36 @@ import {
     AdMobBanner,
 } from 'react-native-admob';
 
-export default React.createClass({
+export default class Welcome extends Component {
+
+    static navigationOptions = {
+        title: 'Welcome Screen',
+        titleStyle: {
+            color: '#fefefe',
+            justifyContent: 'space-between',
+            textAlign: 'center'
+        },
+        headerTintColor: 'red',
+        headerRight: <TouchableOpacity tabLabel="md-pause">
+            <Image source={require('../images/hoang.png')} style={{ width: 40, height: 40 }} />
+        </TouchableOpacity>,
+    };
+
+    clickMe() {
+        this.props.navigation.navigate('Setting_s');
+    }
+
+    componentDidMount() {
+        SplashScreen.hide();
+        // this.props.navigation.setParams({
+        //     handleFilterPress: this._handleFilterPress.bind(this)
+        // });
+    }
+
+    _handleFilterPress() {
+        // do something
+    }
+
     render() {
         const { navigate } = this.props.navigation;
         return <ScrollableTabView initialPage={2} renderTabBar={() => <FacebookTabBar />}
@@ -44,7 +74,7 @@ export default React.createClass({
                                     avatar={{ uri: user.picture.thumbnail }}
                                     title={`${user.name.first.toUpperCase()} ${user.name.last.toUpperCase()}`}
                                     subtitle={user.email}
-                                    onPress={() => navigate('UserDetail_s', { ...user })}
+                                    onPress={() => navigate('Test_Screens', { ...user })}
                                 />
                             ))}
                         </List>
@@ -63,7 +93,7 @@ export default React.createClass({
                                     avatar={{ uri: user.picture.thumbnail }}
                                     title={`${user.name.first.toUpperCase()} ${user.name.last.toUpperCase()}`}
                                     subtitle={user.email}
-                                    onPress={() => navigate('UserDetail_s', { ...user })}
+                                    onPress={() => navigate('Test_Screens', { ...user })}
                                 />
                             ))}
                         </List>
@@ -75,32 +105,47 @@ export default React.createClass({
                     <ScrollView>
                         <List>
                             <ListItem
+                                key="VOTE"
+
+                                avatar={{ uri: "https://fashionthatpays.files.wordpress.com/2014/07/wolverine-x-man.jpg?w=463" }}
+                                title="Đánh giá"
+                                subtitle="--Vote--"
+                                onPress={() => navigate('Setting_s')}
+                            />
+                            <ListItem
+                                key="INTRODUCE"
+
+                                avatar={{ uri: "https://fashionthatpays.files.wordpress.com/2014/07/wolverine-x-man.jpg?w=463" }}
+                                title="Giới thiệu"
+                                subtitle="Introdure"
+                                onPress={() => navigate('Setting_s')}
+                            />
+                            <ListItem
                                 key="SETTING"
 
                                 avatar={{ uri: "https://fashionthatpays.files.wordpress.com/2014/07/wolverine-x-man.jpg?w=463" }}
-                                title="Set1"
-                                subtitle="aAasds"
+                                title="Cài Đặt"
+                                subtitle="--Setting--"
                                 onPress={() => navigate('Setting_s')}
                             />
                             <ListItem
-                                key="SETTING2"
+                                key="INTRODUCE1"
 
                                 avatar={{ uri: "https://fashionthatpays.files.wordpress.com/2014/07/wolverine-x-man.jpg?w=463" }}
-                                title="Set2"
-                                subtitle="aAasds"
+                                title="Giới thiệu"
+                                subtitle="Introdure"
                                 onPress={() => navigate('Setting_s')}
                             />
                             <ListItem
-                                key="SETTING3"
+                                key="SETTING1"
 
                                 avatar={{ uri: "https://fashionthatpays.files.wordpress.com/2014/07/wolverine-x-man.jpg?w=463" }}
-                                title="Set3"
-                                subtitle="aAasds"
+                                title="Cài Đặt"
+                                subtitle="--Setting--"
                                 onPress={() => navigate('Setting_s')}
                             />
-
                         </List>
-                        <Text>Hãy click vào QC để ủng hộ APP</Text>
+                        <Text>Hãy click</Text>
                         <AdMobBanner
                             bannerSize="fullBanner"
                             adUnitID="ca-app-pub-7469861277535029/8882938994"
@@ -110,9 +155,7 @@ export default React.createClass({
                 </View>
             </ScrollView>
         </ScrollableTabView>;
-    },
-
-    componentDidMount() {
-        SplashScreen.hide();
     }
-});
+
+
+};

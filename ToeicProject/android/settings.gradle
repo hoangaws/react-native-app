@@ -1,6 +1,6 @@
 rootProject.name = 'ToeicProject'
 include ':react-native-admob',':react-native-splash-screen',':RNAdMob',':react-native-vector-icons', ':app'
-project(':react-native-admob').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-admob/android') 
+project(':react-native-admob').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-admob/android')
 project(':react-native-splash-screen').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-splash-screen/android')
 project(':RNAdMob').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-admob/android')
 project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
