@@ -77,13 +77,13 @@ export default class ScreenC extends Component {
                             roundAvatar
                             key={i}
                             title={item.name}
-                            subtitle={<Rating
-  type="heart"
-  readonly
-  fractions={5}
-  startingValue={1.57}
-  imageSize={25}
-/>}
+                            subtitle={
+                                <Rating type="heart"
+                                readonly
+                                fractions={5}
+                                startingValue={1.57}
+                                imageSize={25}
+                                />}
                             avatar={{ uri: item.avatar_url }}
                             onPress={() => navigate('Test_Screens')}
                         />
