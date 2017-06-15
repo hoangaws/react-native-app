@@ -82,15 +82,15 @@ class UserDetail extends Component {
         <View style={styles.footer}>
 
           <Icon containerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-            name='close'
-            color='black'
+            name='backspace'
+            color='yellow'
             size={33}
             onPress={() => navigate('C_Screens')}
           />
 
           <Icon containerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
             name='fast-rewind'
-            color='yellow'
+            color='red'
             size={33}
             onPress={() => console.log('hello1')}
           />
