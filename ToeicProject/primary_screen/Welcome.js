@@ -70,7 +70,6 @@ export default class Welcome extends Component {
                             {users.map((user) => (
                                 <ListItem
                                     key={user.login.username}
-
                                     avatar={{ uri: user.picture.thumbnail }}
                                     title={`${user.name.first.toUpperCase()} ${user.name.last.toUpperCase()}`}
                                     subtitle={user.email}

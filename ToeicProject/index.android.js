@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 
-import {Routers} from './primary_screen/Routers.js';
+import {Routers} from './react_native_element/Routers.js';
 
 export default class ToeicProject extends Component {
 
