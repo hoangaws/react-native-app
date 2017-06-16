@@ -3,8 +3,6 @@ import { ScrollView, View, TouchableOpacity, Text } from 'react-native';
 import { List, ListItem,Rating } from 'react-native-elements';
 import Test from './Test.js';
 
-
-
 export default class ScreenC extends Component {
 
     constructor() {
@@ -28,6 +26,7 @@ export default class ScreenC extends Component {
             tabBarStyle.overflow = 'hidden';
             sceneStyle.paddingBottom = 0;
         }
+        
 
         const list = [
             {

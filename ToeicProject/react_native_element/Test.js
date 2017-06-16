@@ -10,7 +10,8 @@ class UserDetail extends Component {
   static navigationOptions = {
     title: 'Test 123',
     headerTintColor: 'blue',
-    headerRight: <Icon reverse name='ios-american-football' type='ionicon' color='#517fa4' />,
+    headerRight: <Icon name='settings' color='#517fa4' 
+     size={33} containerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} />,
   };
 
   constructor(props) {
@@ -82,7 +83,7 @@ class UserDetail extends Component {
         <View style={styles.footer}>
 
           <Icon containerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-            name='backspace'
+            name='event-note'
             color='yellow'
             size={33}
             onPress={() => navigate('C_Screens')}
