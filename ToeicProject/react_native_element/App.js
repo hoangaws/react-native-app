@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { ScrollView, View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { Radar } from 'react-native-pathjs-charts'
+import { ScrollView, View, TouchableOpacity, Text } from 'react-native';
+
 import { SideMenu, List, Tabs, Tab, Icon, ListItem, Rating, ButtonGroup, Badge, Button } from 'react-native-elements';
 import SplashScreen from 'react-native-splash-screen';
 import Screen_A from './Screen_A.js';
 import Screen_B from './Screen_B.js';
 import Screen_C from './Screen_C.js';
 import Screen_D from './Screen_D.js';
+import RadarChartScreen from './RadarChartScreen.js';
 
 class App extends Component {
 
@@ -50,41 +51,6 @@ class App extends Component {
         const { navigate } = this.props.navigation;
         const buttons = ['Listening', 'Reading'];
         const { selectedIndex } = this.state;
-
-        let data = [{
-            "speed": 74,
-            "balance": 29,
-            "explosives": 40,
-            "energy": 40,
-            "flexibility": 30,
-            "agility": 25,
-            "endurance": 44
-        }]
-
-        let options = {
-            width: 290,
-            height: 290,
-            margin: {
-                top: 20,
-                left: 20,
-                right: 30,
-                bottom: 20
-            },
-            r: 150,
-            max: 100,
-            fill: "#2980B9",
-            stroke: "#2980B9",
-            animate: {
-                type: 'oneByOne',
-                duration: 200
-            },
-            label: {
-                fontFamily: 'Arial',
-                fontSize: 14,
-                fontWeight: true,
-                fill: '#34495E'
-            }
-        }
 
         const list = [
             {
@@ -154,9 +120,7 @@ class App extends Component {
                     renderSelectedIcon={() => <Icon color={'#6296f9'} name='create' size={30} />}
                     onPress={() => this.changeTab('manhinhA')}>
 
-                    
-                        <Radar data={data} options={options} />
-                    
+                    <RadarChartScreen />
                 </Tab>
                 <Tab
                     titleStyle={{ fontWeight: 'bold', fontSize: 10 }}
@@ -280,14 +244,5 @@ class App extends Component {
         SplashScreen.hide();
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#f7f7f7',
-    },
-});
 
 export default App;

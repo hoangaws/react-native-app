@@ -6,7 +6,7 @@ import ScreenA from './Screen_A.js';
 import ScreenB from './Screen_B.js';
 import ScreenC from './Screen_C.js';
 import ScreenD from './Screen_D.js';
-import RadarChartBasic from './Chart.js';
+// import RadarChartBasic from './Chart.js';
 
 
 export const Routers = StackNavigator(
@@ -18,7 +18,7 @@ export const Routers = StackNavigator(
     B_Screens: { screen: ScreenB },
     C_Screens: { screen: ScreenC },
     D_Screens: { screen: ScreenD },
-    Chart_Screens: {screen : RadarChartBasic}
+    // Chart_Screens: {screen : RadarChartBasic}
   },
   {
     initialRouteName: 'App_Screens',
